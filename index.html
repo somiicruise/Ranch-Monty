@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranch Monty</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <h1 id="hero-title">
+            Ranch<br /><span class="hero-title__indent">Monty</span>
+          </h1>
+          <p class="hero__intro">
+            Rodinný ranč, kde nájdete krásne miesto, pokoj, prírodu a lásku ku koňom.
+          </p>
+
+          <div class="contact-strip" aria-label="Zakladne informacie">
+            <a class="contact-strip__item" href="https://maps.google.com/?q=Suka%20Vychodne%20Slovensko">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M12 21s7-6.16 7-12a7 7 0 0 0-14 0c0 5.84 7 12 7 12Z" />
+                  <circle cx="12" cy="9" r="2.4" />
+                </svg>
+              </span>
+              <span>Sukov - Vychodne Slovensko</span>
+            </a>
+
+            <a class="contact-strip__item" href="tel:+421900123456">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M7.42 3.25 9.1 3a2 2 0 0 1 2.1 1.22l.9 2.16a2 2 0 0 1-.46 2.2l-1.08 1.08a12.2 12.2 0 0 0 3.78 3.78l1.08-1.08a2 2 0 0 1 2.2-.46l2.16.9A2 2 0 0 1 21 14.9l-.25 1.68a4 4 0 0 1-4.23 3.38C9.52 19.5 4.5 14.48 4.04 7.48A4 4 0 0 1 7.42 3.25Z" />
+                </svg>
+              </span>
+              <span>+421 907 506 162</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <img class="hero__image" src="hero.png" alt="Ranch Monty" />
+        </div>
+      </section>
+
+      <section class="gallery" aria-labelledby="gallery-title">
+        <div class="gallery__header">
+          <div>
+            <p class="eyebrow">Galeria</p>
+            <h2 id="gallery-title">Zivot na ranchi</h2>
+          </div>
+
+          <div class="gallery__controls">
+            <button class="gallery__button" type="button" data-slider-prev aria-label="Predosla fotka">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 18 9 12l6-6" />
+              </svg>
+            </button>
+            <button class="gallery__button" type="button" data-slider-next aria-label="Dalsia fotka">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="slider" data-slider>
+          <article class="slide is-active">
+            <div class="image-placeholder">
+              <span>01</span>
+            </div>
+            <div class="slide__caption">
+              <span>Vybeh</span>
+              <strong>Otvoreny priestor pre kone</strong>
+            </div>
+          </article>
+
+          <article class="slide">
+            <div class="image-placeholder">
+              <span>02</span>
+            </div>
+            <div class="slide__caption">
+              <span>Stajne</span>
+              <strong>Jednoduche zazemie ranchu</strong>
+            </div>
+          </article>
+
+          <article class="slide">
+            <div class="image-placeholder">
+              <span>03</span>
+            </div>
+            <div class="slide__caption">
+              <span>Okolie</span>
+              <strong>Pokojne vyhlady do prirody</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="slider-dots" aria-label="Prepinanie galerie">
+          <button class="slider-dot is-active" type="button" data-slide-to="0" aria-label="Zobrazit fotku 1"></button>
+          <button class="slider-dot" type="button" data-slide-to="1" aria-label="Zobrazit fotku 2"></button>
+          <button class="slider-dot" type="button" data-slide-to="2" aria-label="Zobrazit fotku 3"></button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
