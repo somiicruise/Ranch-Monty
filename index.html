@@ -44,66 +44,100 @@
         </div>
       </section>
 
-      <section class="gallery" aria-labelledby="gallery-title">
-        <div class="gallery__header">
-          <div>
-            <p class="eyebrow">Galeria</p>
-            <h2 id="gallery-title">Zivot na ranchi</h2>
-          </div>
+      <section class="gallery ranch-life" aria-labelledby="gallery-title" data-reveal-section>
 
-          <div class="gallery__controls">
-            <button class="gallery__button" type="button" data-slider-prev aria-label="Predosla fotka">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M15 18 9 12l6-6" />
-              </svg>
-            </button>
-            <button class="gallery__button" type="button" data-slider-next aria-label="Dalsia fotka">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </button>
-          </div>
-        </div>
+        <div class="ranch-accordion" data-reveal>
+          <details class="ranch-service" open>
+            <summary class="ranch-service__trigger">
+              <span class="ranch-service__title">Jazdy pre deti</span>
+              <span class="ranch-service__pointer" aria-hidden="true">↗</span>
+            </summary>
+            <div class="ranch-service__panel">
+              <p>
+                Bezpečné a príjemné zoznámenie s koňmi, na ktoré budú deti dlho
+                spomínať.
+              </p>
+              <div class="ranch-service__media" aria-label="Fotky k jazdám pre deti">
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image2.png" data-lightbox-alt="Dieťa na koni vo výbehu">
+                  <img src="assets/image2.png" alt="Dieťa na koni vo výbehu" />
+                </button>
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image1.png" data-lightbox-alt="Dievča vedie kone vo výbehu">
+                  <img src="assets/image1.png" alt="Dievča vedie kone vo výbehu" />
+                </button>
+              </div>
+            </div>
+          </details>
 
-        <div class="slider" data-slider>
-          <article class="slide is-active">
-            <div class="image-placeholder">
-              <span>01</span>
+          <details class="ranch-service">
+            <summary class="ranch-service__trigger">
+              <span class="ranch-service__title">Výjazdové jazdy</span>
+              <span class="ranch-service__pointer" aria-hidden="true">↗</span>
+            </summary>
+            <div class="ranch-service__panel">
+              <p>
+                Objavte okolitú prírodu zo sedla koňa a užite si pokoj, slobodu
+                a nezabudnuteľné výhľady.
+              </p>
+              <div class="ranch-service__media" aria-label="Fotky k výjazdovým jazdám">
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image4.png" data-lightbox-alt="Kone na lúke s výhľadom na krajinu">
+                  <img src="assets/image4.png" alt="Kone na lúke s výhľadom na krajinu" />
+                </button>
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image2.png" data-lightbox-alt="Pokojná jazda na koni v prírode">
+                  <img src="assets/image2.png" alt="Pokojná jazda na koni v prírode" />
+                </button>
+              </div>
             </div>
-            <div class="slide__caption">
-              <span>Vybeh</span>
-              <strong>Otvoreny priestor pre kone</strong>
-            </div>
-          </article>
+          </details>
 
-          <article class="slide">
-            <div class="image-placeholder">
-              <span>02</span>
+          <details class="ranch-service">
+            <summary class="ranch-service__trigger">
+              <span class="ranch-service__title">Krásna príroda</span>
+              <span class="ranch-service__pointer" aria-hidden="true">↗</span>
+            </summary>
+            <div class="ranch-service__panel">
+              <p>
+                Miesto obklopené zeleňou, pokojom a priestorom, kde môžete na
+                chvíľu uniknúť od každodenného ruchu.
+              </p>
+              <div class="ranch-service__media" aria-label="Fotky okolitej prírody">
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image4.png" data-lightbox-alt="Zelené kopce a lúka pri ranči">
+                  <img src="assets/image4.png" alt="Zelené kopce a lúka pri ranči" />
+                </button>
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image1.png" data-lightbox-alt="Výbeh obklopený lesom">
+                  <img src="assets/image1.png" alt="Výbeh obklopený lesom" />
+                </button>
+              </div>
             </div>
-            <div class="slide__caption">
-              <span>Stajne</span>
-              <strong>Jednoduche zazemie ranchu</strong>
-            </div>
-          </article>
+          </details>
 
-          <article class="slide">
-            <div class="image-placeholder">
-              <span>03</span>
+          <details class="ranch-service">
+            <summary class="ranch-service__trigger">
+              <span class="ranch-service__title">Naše kone</span>
+              <span class="ranch-service__pointer" aria-hidden="true">↗</span>
+            </summary>
+            <div class="ranch-service__panel">
+              <p>
+                Srdcom nášho ranča sú kone, o ktoré sa staráme s láskou a ktoré
+                sú neoddeliteľnou súčasťou našej rodiny.
+              </p>
+              <div class="ranch-service__media" aria-label="Fotky našich koní">
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image3.png" data-lightbox-alt="Kôň s jazdkyňou pri ranči">
+                  <img src="assets/image3.png" alt="Kôň s jazdkyňou pri ranči" />
+                </button>
+                <button class="ranch-service__image" type="button" data-lightbox-src="assets/image1.png" data-lightbox-alt="Dva kone vo výbehu">
+                  <img src="assets/image1.png" alt="Dva kone vo výbehu" />
+                </button>
+              </div>
             </div>
-            <div class="slide__caption">
-              <span>Okolie</span>
-              <strong>Pokojne vyhlady do prirody</strong>
-            </div>
-          </article>
-        </div>
-
-        <div class="slider-dots" aria-label="Prepinanie galerie">
-          <button class="slider-dot is-active" type="button" data-slide-to="0" aria-label="Zobrazit fotku 1"></button>
-          <button class="slider-dot" type="button" data-slide-to="1" aria-label="Zobrazit fotku 2"></button>
-          <button class="slider-dot" type="button" data-slide-to="2" aria-label="Zobrazit fotku 3"></button>
+          </details>
         </div>
       </section>
     </main>
+
+    <div class="image-lightbox" data-lightbox hidden>
+      <button class="image-lightbox__close" type="button" data-lightbox-close aria-label="Zavrieť náhľad">x</button>
+      <img class="image-lightbox__image" src="" alt="" data-lightbox-image />
+    </div>
 
     <script src="script.js"></script>
   </body>
