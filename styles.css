@@ -39,8 +39,8 @@ main {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(520px, 0.92fr) minmax(440px, 0.78fr);
-  min-height: 720px;
+  grid-template-columns: minmax(460px, 0.88fr) minmax(400px, 0.72fr);
+  min-height: 650px;
   margin-top: -5em;
 }
 
@@ -48,7 +48,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 76px 64px 72px 118px;
+  padding: 64px 56px 60px 92px;
 }
 
 .eyebrow {
@@ -67,10 +67,10 @@ p {
 }
 
 h1 {
-  max-width: 700px;
-  margin-bottom: 34px;
+  max-width: 560px;
+  margin-bottom: 28px;
   color: var(--black);
-  font-size: 17vw;
+  font-size: 156px;
   line-height: 0.9;
   font-weight: 900;
   letter-spacing: 0;
@@ -78,14 +78,14 @@ h1 {
 
 .hero-title__indent {
   display: inline-block;
-  margin-left: 70px;
+  margin-left: 56px;
 }
 
 .hero__intro {
-  width: 440px;
-  margin-bottom: 42px;
+  width: 390px;
+  margin-bottom: 34px;
   color: var(--ink);
-  font-size: 21px;
+  font-size: 19px;
   line-height: 1.45;
 }
 
@@ -99,12 +99,12 @@ h1 {
 .contact-strip__item {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  min-height: 54px;
-  padding: 0 18px 0 14px;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 16px 0 12px;
   background: var(--white);
   color: var(--ink);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 650;
   transition: border-color 180ms ease, background-color 180ms ease;
 }
@@ -112,15 +112,15 @@ h1 {
 .icon {
   display: inline-grid;
   place-items: center;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   color: var(--black);
 }
 
 .icon svg {
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border: 0;
   fill: none;
   stroke: currentColor;
@@ -132,27 +132,29 @@ h1 {
 .hero__media {
   display: flex;
   align-items: stretch;
-  padding: 32px 32px -1em 0;
+  padding: 28px 28px 0 0;
 }
 
 .hero__image {
   display: block;
   width: 100%;
-  min-height: 656px;
+  height: 100%;
+  min-height: 592px;
+  max-height: 620px;
   object-fit: cover;
 }
 
 .gallery {
-  padding: 126px 72px 142px;
+  padding: 98px 64px 112px;
   background: var(--white);
   color: var(--black);
 }
 
 .gallery__header {
   display: grid;
-  gap: 22px;
-  max-width: 1280px;
-  margin: 0 auto 72px;
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto 58px;
 }
 
 .ranch-life__kicker {
@@ -170,11 +172,11 @@ h1 {
 }
 
 .gallery h2 {
-  max-width: 880px;
+  max-width: 760px;
   scroll-margin-top: 32px;
   margin-bottom: 0;
   color: var(--black);
-  font-size: 114px;
+  font-size: 84px;
   line-height: 0.9;
   font-weight: 260;
   letter-spacing: 0;
@@ -182,7 +184,7 @@ h1 {
 }
 
 .ranch-accordion {
-  max-width: 1280px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
@@ -193,10 +195,10 @@ h1 {
 
 .ranch-service__trigger {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 54px;
+  grid-template-columns: minmax(0, 1fr) 48px;
   align-items: start;
-  gap: 42px;
-  padding: 34px 0;
+  gap: 34px;
+  padding: 28px 0;
   color: var(--muted);
   cursor: pointer;
   list-style: none;
@@ -210,8 +212,8 @@ h1 {
 .ranch-service__title {
   min-width: 0;
   color: currentColor;
-  font-size: 96px;
-  line-height: 0.88;
+  font-size: 74px;
+  line-height: 0.9;
   font-weight: 450;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -221,10 +223,10 @@ h1 {
 .ranch-service__pointer {
   display: grid;
   place-items: center;
-  width: 54px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   color: currentColor;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 1;
   font-weight: 300;
   transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, color 180ms ease;
@@ -254,9 +256,9 @@ h1 {
 .ranch-service__panel {
   display: grid;
   grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
-  gap: 48px;
+  gap: 40px;
   align-items: end;
-  padding: 0 0 46px;
+  padding: 0 0 38px;
   animation: panel-reveal 260ms ease;
 }
 
@@ -264,7 +266,7 @@ h1 {
   max-width: 420px;
   margin: 0;
   color: var(--ink);
-  font-size: 19px;
+  font-size: 17px;
   line-height: 1.55;
 }
 
@@ -278,7 +280,7 @@ h1 {
 .ranch-service__image {
   position: relative;
   display: block;
-  height: 168px;
+  height: 150px;
   padding: 0;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -308,21 +310,21 @@ h1 {
 }
 
 .about-section {
-  padding: 116px 72px 124px;
+  padding: 92px 64px 104px;
   color: var(--black);
 }
 
 .about-section__inner {
   display: grid;
   grid-template-columns: minmax(320px, 0.94fr) minmax(280px, 0.56fr);
-  gap: 72px;
+  gap: 56px;
   align-items: end;
-  max-width: 1280px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
 .about-section__content {
-  max-width: 720px;
+  max-width: 640px;
 }
 
 .about-section__kicker {
@@ -340,28 +342,28 @@ h1 {
 }
 
 .about-section h2 {
-  margin: 0 0 34px;
+  margin: 0 0 28px;
   color: var(--black);
-  font-size: 72px;
+  font-size: 58px;
   line-height: 0.95;
   font-weight: 680;
   letter-spacing: 0;
 }
 
 .about-section__copy {
-  max-width: 560px;
+  max-width: 520px;
   margin: 0;
   color: var(--ink);
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.55;
   font-weight: 520;
 }
 
 .about-section__media {
   justify-self: end;
-  width: min(100%, 430px);
+  width: min(100%, 380px);
   margin: 0;
-  min-height: 420px;
+  min-height: 360px;
   overflow: hidden;
   background: var(--placeholder);
 }
@@ -370,12 +372,12 @@ h1 {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 420px;
+  min-height: 360px;
   object-fit: cover;
 }
 
 .contact-section {
-  padding: 92px 72px 78px;
+  padding: 76px 64px 64px;
   background: var(--white);
   color: var(--black);
 }
@@ -383,22 +385,22 @@ h1 {
 .contact-section__header,
 .contact-section__details {
   display: grid;
-  max-width: 1360px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
 .contact-section__header {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 44px;
+  gap: 36px;
   align-items: start;
-  margin-bottom: 72px;
+  margin-bottom: 56px;
 }
 
 .contact-section h2 {
   min-width: 0;
   margin: 0;
   color: var(--black);
-  font-size: 54px;
+  font-size: 42px;
   line-height: 0.95;
   font-weight: 900;
   letter-spacing: 0;
@@ -411,7 +413,7 @@ h1 {
 
 .contact-section__phone {
   color: var(--black);
-  font-size: 54px;
+  font-size: 42px;
   line-height: 0.95;
   font-weight: 900;
   letter-spacing: 0;
@@ -421,7 +423,7 @@ h1 {
 
 .contact-section__details {
   grid-template-columns: minmax(160px, 0.58fr) minmax(190px, 0.54fr) minmax(260px, 0.88fr);
-  gap: 54px;
+  gap: 42px;
   align-items: end;
 }
 
@@ -429,7 +431,7 @@ h1 {
 .contact-section__actions p {
   margin: 0;
   color: var(--ink);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.35;
   font-weight: 700;
 }
@@ -437,7 +439,7 @@ h1 {
 .contact-section__actions {
   display: grid;
   justify-items: end;
-  gap: 52px;
+  gap: 42px;
   text-align: right;
 }
 
@@ -451,22 +453,22 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 22px;
+  gap: 18px;
   color: var(--black);
 }
 
 .contact-section__links a {
   display: inline-grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   color: var(--black);
 }
 
 .contact-section__links svg {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
 .contact-section__links a:first-child svg {
@@ -582,34 +584,34 @@ body.is-lightbox-open {
 
 @media (max-width: 1180px) {
   .hero {
-    grid-template-columns: minmax(420px, 0.92fr) minmax(360px, 0.78fr);
+    grid-template-columns: minmax(400px, 0.9fr) minmax(340px, 0.76fr);
   }
 
   .hero__content {
-    padding-left: 56px;
+    padding-left: 48px;
   }
 
   .gallery {
-    padding-right: 42px;
-    padding-left: 42px;
+    padding-right: 38px;
+    padding-left: 38px;
   }
 
   .about-section {
-    padding-right: 42px;
-    padding-left: 42px;
+    padding-right: 38px;
+    padding-left: 38px;
   }
 
   .about-section__inner {
-    gap: 48px;
+    gap: 42px;
   }
 
   .about-section h2 {
-    font-size: 58px;
+    font-size: 50px;
   }
 
   .contact-section {
-    padding-right: 42px;
-    padding-left: 42px;
+    padding-right: 38px;
+    padding-left: 38px;
   }
 
   .contact-section__header {
@@ -618,15 +620,15 @@ body.is-lightbox-open {
 
   .contact-section h2,
   .contact-section__phone {
-    font-size: 48px;
+    font-size: 38px;
   }
 
   .gallery h2 {
-    font-size: 94px;
+    font-size: 72px;
   }
 
   .ranch-service__title {
-    font-size: 78px;
+    font-size: 64px;
   }
 }
 
@@ -638,11 +640,11 @@ body.is-lightbox-open {
   }
 
   .hero__content {
-    padding: 64px 28px 42px;
+    padding: 56px 28px 36px;
   }
 
   h1 {
-    font-size: 108px;
+    font-size: 92px;
   }
 
   .hero__intro {
@@ -655,16 +657,17 @@ body.is-lightbox-open {
   }
 
   .hero__image {
-    min-height: 520px;
-    max-height: 680px;
+    height: 460px;
+    min-height: 0;
+    max-height: none;
   }
 
   .gallery {
-    padding: 94px 28px 108px;
+    padding: 78px 28px 92px;
   }
 
   .about-section {
-    padding: 90px 28px 96px;
+    padding: 78px 28px 84px;
   }
 
   .about-section__inner {
@@ -675,7 +678,7 @@ body.is-lightbox-open {
 
   .about-section h2 {
     max-width: 760px;
-    font-size: 52px;
+    font-size: 44px;
   }
 
   .about-section__copy {
@@ -684,16 +687,16 @@ body.is-lightbox-open {
 
   .about-section__media {
     justify-self: start;
-    width: min(100%, 520px);
-    min-height: 360px;
+    width: min(100%, 480px);
+    min-height: 320px;
   }
 
   .about-section__media img {
-    min-height: 360px;
+    min-height: 320px;
   }
 
   .contact-section {
-    padding: 78px 28px 62px;
+    padding: 68px 28px 54px;
   }
 
   .contact-section__header {
@@ -704,7 +707,7 @@ body.is-lightbox-open {
 
   .contact-section h2,
   .contact-section__phone {
-    font-size: 48px;
+    font-size: 38px;
   }
 
   .contact-section__phone {
@@ -732,7 +735,7 @@ body.is-lightbox-open {
   }
 
   .gallery h2 {
-    font-size: 72px;
+    font-size: 58px;
   }
 
   .ranch-service__trigger {
@@ -742,13 +745,13 @@ body.is-lightbox-open {
   }
 
   .ranch-service__title {
-    font-size: 58px;
+    font-size: 48px;
   }
 
   .ranch-service__pointer {
-    width: 46px;
-    height: 46px;
-    font-size: 22px;
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
   }
 
   .ranch-service__panel {
@@ -767,19 +770,19 @@ body.is-lightbox-open {
 
 @media (max-width: 620px) {
   .hero__content {
-    padding: 48px 20px 34px;
+    padding: 42px 20px 30px;
   }
 
   h1 {
-    font-size: 78px;
+    font-size: 64px;
   }
 
   .hero-title__indent {
-    margin-left: 36px;
+    margin-left: 28px;
   }
 
   .hero__intro {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .contact-strip__item {
@@ -791,15 +794,16 @@ body.is-lightbox-open {
   }
 
   .hero__image {
-    min-height: 390px;
+    height: 330px;
+    min-height: 0;
   }
 
   .gallery {
-    padding: 70px 20px 86px;
+    padding: 58px 20px 72px;
   }
 
   .about-section {
-    padding: 68px 20px 76px;
+    padding: 56px 20px 64px;
   }
 
   .about-section__kicker {
@@ -808,22 +812,22 @@ body.is-lightbox-open {
   }
 
   .about-section h2 {
-    margin-bottom: 26px;
-    font-size: 38px;
+    margin-bottom: 22px;
+    font-size: 32px;
     line-height: 1;
   }
 
   .about-section__copy {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .about-section__media,
   .about-section__media img {
-    min-height: 260px;
+    min-height: 230px;
   }
 
   .contact-section {
-    padding: 64px 20px 52px;
+    padding: 54px 20px 44px;
   }
 
   .contact-section__header {
@@ -832,7 +836,7 @@ body.is-lightbox-open {
 
   .contact-section h2,
   .contact-section__phone {
-    font-size: 34px;
+    font-size: 28px;
     line-height: 1;
   }
 
@@ -843,7 +847,7 @@ body.is-lightbox-open {
 
   .contact-section__meta p,
   .contact-section__actions p {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .contact-section__actions {
@@ -865,7 +869,7 @@ body.is-lightbox-open {
   }
 
   .gallery h2 {
-    font-size: 48px;
+    font-size: 40px;
   }
 
   .ranch-service__trigger {
@@ -874,7 +878,7 @@ body.is-lightbox-open {
   }
 
   .ranch-service__title {
-    font-size: 38px;
+    font-size: 33px;
     line-height: 0.96;
   }
 
@@ -889,7 +893,7 @@ body.is-lightbox-open {
   }
 
   .ranch-service__panel p {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .ranch-service__media {
@@ -898,7 +902,7 @@ body.is-lightbox-open {
   }
 
   .ranch-service__image {
-    height: 126px;
+    height: 112px;
   }
 
   .image-lightbox {
