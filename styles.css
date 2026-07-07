@@ -669,27 +669,25 @@ body.is-lightbox-open {
   }
 
   .about-section__inner {
-    flex-direction: column;
-    gap: 34px;
+    gap: 28px;
   }
 
   .about-section__media {
-    flex: none;
-    justify-self: center;
-    width: min(100%, 540px);
+    flex: 1 1 54%;
+    max-width: 54%;
+    width: auto;
     transform: none;
   }
 
   .about-section__content {
-    flex: none;
-    justify-self: center;
-    width: 100%;
-    max-width: 560px;
+    flex: 0 1 40%;
+    width: auto;
+    max-width: 40%;
     margin-left: 0;
   }
 
   .about-section h2 {
-    font-size: 42px;
+    font-size: 34px;
   }
 
   .contact-section {
@@ -752,16 +750,18 @@ body.is-lightbox-open {
   }
 
   .ranch-service__panel {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
   }
 
   .ranch-service__panel p {
-    max-width: 620px;
+    max-width: 320px;
   }
 
   .ranch-service__media {
-    justify-content: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: end;
   }
 }
 
@@ -810,17 +810,21 @@ body.is-lightbox-open {
   }
 
   .about-section__media {
-    width: 100%;
+    flex-basis: 48%;
+    max-width: 48%;
+    width: auto;
   }
 
   .about-section h2 {
-    font-size: 36px;
+    font-size: 28px;
     line-height: 1;
   }
 
   .about-section__copy {
-    padding-left: 18px;
-    font-size: 16px;
+    max-width: none;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .contact-section {
@@ -891,11 +895,10 @@ body.is-lightbox-open {
   }
 
   .ranch-service__panel p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .ranch-service__media {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -949,13 +952,12 @@ body.is-lightbox-open {
   }
 
   .about-section h2 {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .about-section__copy {
-    max-width: none;
-    padding-left: 12px;
-    font-size: 15px;
+    padding-left: 8px;
+    font-size: 13px;
   }
 
   .contact-section h2,
