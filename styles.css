@@ -43,6 +43,7 @@ main {
   position: relative;
   isolation: isolate;
   display: grid;
+  grid-template-areas: "content media";
   grid-template-columns: minmax(460px, 0.88fr) minmax(400px, 0.72fr);
   gap: 56px;
   width: 100%;
@@ -54,6 +55,8 @@ main {
 .hero__content {
   position: relative;
   z-index: 2;
+  grid-area: content;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,6 +143,8 @@ h1 {
 
 .hero__media {
   position: relative;
+  grid-area: media;
+  min-width: 0;
   display: flex;
   align-items: stretch;
   padding: 28px 0 0;
@@ -631,7 +636,9 @@ body.is-lightbox-open {
 
   .hero {
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 0.78fr);
+    grid-template-areas: "content media";
     align-items: center;
+    grid-auto-flow: column;
     min-height: auto;
     margin-top: 0;
     gap: 24px;
@@ -774,6 +781,12 @@ body.is-lightbox-open {
 
   .hero__content {
     padding: 38px 0 38px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 0.98fr) minmax(112px, 0.72fr);
+    gap: 16px;
+    align-items: start;
   }
 
   h1 {
@@ -926,6 +939,11 @@ body.is-lightbox-open {
 
   .hero__content {
     padding-top: 30px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 0.96fr) minmax(104px, 0.68fr);
+    gap: 10px;
   }
 
   h1 {
