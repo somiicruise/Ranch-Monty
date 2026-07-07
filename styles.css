@@ -669,26 +669,25 @@ body.is-lightbox-open {
   }
 
   .about-section__inner {
-    flex-direction: column;
-    gap: 34px;
+    gap: 28px;
   }
 
   .about-section__media {
-    flex: none;
-    justify-self: center;
-    width: min(100%, 540px);
+    flex: 1 1 54%;
+    max-width: 54%;
+    width: auto;
     transform: none;
   }
 
   .about-section__content {
-    flex: none;
-    justify-self: center;
-    max-width: 560px;
+    flex: 0 1 40%;
+    width: auto;
+    max-width: 40%;
     margin-left: 0;
   }
 
   .about-section h2 {
-    font-size: 42px;
+    font-size: 34px;
   }
 
   .contact-section {
@@ -751,16 +750,18 @@ body.is-lightbox-open {
   }
 
   .ranch-service__panel {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
   }
 
   .ranch-service__panel p {
-    max-width: 620px;
+    max-width: 320px;
   }
 
   .ranch-service__media {
-    justify-content: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: end;
   }
 }
 
@@ -774,14 +775,16 @@ body.is-lightbox-open {
   }
 
   h1 {
-    font-size: 64px;
+    font-size: 58px;
+    line-height: 0.86;
   }
 
   .hero-title__indent {
-    margin-left: 28px;
+    margin-left: 20px;
   }
 
   .hero__intro {
+    max-width: 360px;
     font-size: 16px;
   }
 
@@ -794,7 +797,7 @@ body.is-lightbox-open {
   }
 
   .hero__image {
-    height: 330px;
+    height: 300px;
     min-height: 0;
   }
 
@@ -807,17 +810,21 @@ body.is-lightbox-open {
   }
 
   .about-section__media {
-    width: 100%;
+    flex-basis: 48%;
+    max-width: 48%;
+    width: auto;
   }
 
   .about-section h2 {
-    font-size: 36px;
+    font-size: 28px;
     line-height: 1;
   }
 
   .about-section__copy {
-    padding-left: 18px;
-    font-size: 16px;
+    max-width: none;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .contact-section {
@@ -863,7 +870,8 @@ body.is-lightbox-open {
   }
 
   .gallery h2 {
-    font-size: 40px;
+    font-size: 36px;
+    line-height: 0.95;
   }
 
   .ranch-service__trigger {
@@ -872,8 +880,8 @@ body.is-lightbox-open {
   }
 
   .ranch-service__title {
-    font-size: 33px;
-    line-height: 0.96;
+    font-size: 30px;
+    line-height: 1;
   }
 
   .ranch-service__pointer {
@@ -887,16 +895,15 @@ body.is-lightbox-open {
   }
 
   .ranch-service__panel p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .ranch-service__media {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .ranch-service__image {
-    height: 112px;
+    height: 104px;
   }
 
   .image-lightbox {
@@ -906,5 +913,70 @@ body.is-lightbox-open {
   .image-lightbox__close {
     top: 14px;
     right: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --page-gutter: 16px;
+  }
+
+  .hero__content {
+    padding-top: 34px;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .hero-title__indent {
+    margin-left: 14px;
+  }
+
+  .hero__intro {
+    font-size: 15px;
+    line-height: 1.42;
+  }
+
+  .contact-strip {
+    gap: 10px;
+  }
+
+  .contact-strip__item {
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .hero__image {
+    height: 270px;
+  }
+
+  .about-section h2 {
+    font-size: 24px;
+  }
+
+  .about-section__copy {
+    padding-left: 8px;
+    font-size: 13px;
+  }
+
+  .contact-section h2,
+  .contact-section__phone {
+    font-size: 26px;
+  }
+
+  .ranch-service__trigger {
+    grid-template-columns: minmax(0, 1fr) 34px;
+    gap: 14px;
+  }
+
+  .ranch-service__title {
+    font-size: 27px;
+  }
+
+  .ranch-service__pointer {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
   }
 }
