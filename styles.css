@@ -972,12 +972,12 @@ body.is-lightbox-open {
   }
 
   .ranch-service__image {
-    flex-basis: 45%;
-    height: 104px;
+    flex-basis: 84%;
+    height: 118px;
   }
 
   .ranch-service__media--pair .ranch-service__image {
-    flex-basis: 45%;
+    flex-basis: 84%;
   }
 
   .image-lightbox {
