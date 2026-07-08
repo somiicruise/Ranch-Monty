@@ -26,30 +26,34 @@ if (revealSections.length > 0) {
 }
 
 const dragSliders = Array.from(document.querySelectorAll("[data-drag-slider]"));
+const dragThreshold = 10;
 
 dragSliders.forEach((slider) => {
+  let isPointerDown = false;
   let isDragging = false;
   let startX = 0;
   let startScrollLeft = 0;
-  let hasMoved = false;
 
   function stopDragging(pointerId) {
-    if (!isDragging) {
-      return;
-    }
+    const wasDragging = isDragging;
 
+    isPointerDown = false;
     isDragging = false;
     slider.classList.remove("is-dragging");
 
-    if (hasMoved) {
+    if (wasDragging) {
       slider.dataset.dragged = "true";
       window.setTimeout(() => {
         slider.dataset.dragged = "false";
-      }, 0);
+      }, 120);
     }
 
     if (pointerId != null && slider.hasPointerCapture(pointerId)) {
-      slider.releasePointerCapture(pointerId);
+      try {
+        slider.releasePointerCapture(pointerId);
+      } catch {
+        // Pointer capture can already be released by the browser.
+      }
     }
   }
 
@@ -58,25 +62,34 @@ dragSliders.forEach((slider) => {
       return;
     }
 
-    isDragging = true;
-    hasMoved = false;
+    isPointerDown = true;
+    isDragging = false;
     startX = event.clientX;
     startScrollLeft = slider.scrollLeft;
-    slider.classList.add("is-dragging");
-    slider.setPointerCapture(event.pointerId);
   });
 
   slider.addEventListener("pointermove", (event) => {
-    if (!isDragging) {
+    if (!isPointerDown) {
       return;
     }
 
     const deltaX = event.clientX - startX;
 
-    if (Math.abs(deltaX) > 4) {
-      hasMoved = true;
+    if (!isDragging && Math.abs(deltaX) > dragThreshold) {
+      isDragging = true;
+      slider.classList.add("is-dragging");
+      try {
+        slider.setPointerCapture(event.pointerId);
+      } catch {
+        // Drag still works if pointer capture is unavailable.
+      }
     }
 
+    if (!isDragging) {
+      return;
+    }
+
+    event.preventDefault();
     slider.scrollLeft = startScrollLeft - deltaX;
   });
 
