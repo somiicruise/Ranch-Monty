@@ -534,13 +534,14 @@ h1 {
 }
 
 .image-lightbox {
+  --lightbox-gutter: 36px;
   position: fixed;
   inset: 0;
   z-index: 20;
   display: grid;
   place-items: center;
-  padding: 42px;
-  background: rgba(8, 8, 8, 0.86);
+  padding: 18px;
+  background: rgba(8, 8, 8, 0.94);
 }
 
 .image-lightbox[hidden] {
@@ -549,11 +550,12 @@ h1 {
 
 .image-lightbox__image {
   display: block;
-  max-width: min(980px, 88vw);
-  max-height: 82vh;
+  width: calc(100vw - var(--lightbox-gutter));
+  height: calc(100vh - var(--lightbox-gutter));
+  max-width: none;
+  max-height: none;
   object-fit: contain;
-  background: var(--black);
-  box-shadow: 0 34px 86px rgba(0, 0, 0, 0.46);
+  background: transparent;
 }
 
 .image-lightbox__close {
@@ -979,7 +981,8 @@ body.is-lightbox-open {
   }
 
   .image-lightbox {
-    padding: 22px;
+    --lightbox-gutter: 24px;
+    padding: 12px;
   }
 
   .image-lightbox__close {
