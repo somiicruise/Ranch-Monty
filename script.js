@@ -1,4 +1,5 @@
 const revealSections = Array.from(document.querySelectorAll("[data-reveal-section]"));
+const scrollSliceImages = Array.from(document.querySelectorAll("[data-scroll-slice-image]"));
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (revealSections.length > 0) {
@@ -16,13 +17,73 @@ if (revealSections.length > 0) {
           }
         });
       },
-      { threshold: 0.18 }
+      { threshold: 0.16, rootMargin: "0px 0px 6% 0px" }
     );
 
     revealSections.forEach((section) => {
       revealObserver.observe(section);
     });
   }
+}
+
+if (scrollSliceImages.length > 0 && !prefersReducedMotion) {
+  const sliceTiming = [
+    { start: 0, end: 0.24, skew: 12 },
+    { start: 0.2, end: 0.54, skew: -10 },
+    { start: 0.5, end: 0.74, skew: 14 },
+    { start: 0.7, end: 0.9, skew: -9 },
+    { start: 0.86, end: 1, skew: 12 },
+  ];
+  let sliceFrame = null;
+
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function setSliceProgress(slice, progress, skew) {
+    const lead = progress * 118;
+    const front = skew < 0 ? lead + skew : lead;
+    const back = skew > 0 ? lead - skew : lead;
+
+    slice.style.setProperty("--slice-front", `${clamp(front, 0, 118)}%`);
+    slice.style.setProperty("--slice-back", `${clamp(back, 0, 118)}%`);
+  }
+
+  function updateScrollSlices() {
+    sliceFrame = null;
+
+    scrollSliceImages.forEach((image) => {
+      const rect = image.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const revealStart = viewportHeight * 0.9;
+      const revealDistance = viewportHeight * 0.58 + rect.height * 0.35;
+      const overallProgress = clamp((revealStart - rect.top) / revealDistance, 0, 1);
+      const slices = Array.from(image.querySelectorAll(".about-section__slice"));
+
+      image.classList.add("is-sliced");
+
+      slices.forEach((slice, index) => {
+        const timing = sliceTiming[index] || sliceTiming[sliceTiming.length - 1];
+        const progress = clamp(
+          (overallProgress - timing.start) / (timing.end - timing.start),
+          0,
+          1
+        );
+
+        setSliceProgress(slice, progress, timing.skew);
+      });
+    });
+  }
+
+  function requestSliceUpdate() {
+    if (sliceFrame == null) {
+      sliceFrame = window.requestAnimationFrame(updateScrollSlices);
+    }
+  }
+
+  updateScrollSlices();
+  window.addEventListener("scroll", requestSliceUpdate, { passive: true });
+  window.addEventListener("resize", requestSliceUpdate);
 }
 
 const dragSliders = Array.from(document.querySelectorAll("[data-drag-slider]"));

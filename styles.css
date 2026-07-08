@@ -276,7 +276,7 @@ h1 {
   gap: 40px;
   align-items: end;
   padding: 0 0 38px;
-  animation: panel-reveal 260ms ease;
+  animation: panel-reveal 320ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ranch-service__panel p {
@@ -285,6 +285,15 @@ h1 {
   color: var(--ink);
   font-size: 17px;
   line-height: 1.55;
+}
+
+.ranch-service[open] .ranch-service__panel p,
+.ranch-service[open] .ranch-service__media {
+  animation: panel-content-reveal 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ranch-service[open] .ranch-service__media {
+  animation-delay: 70ms;
 }
 
 .ranch-service__media {
@@ -388,6 +397,8 @@ h1 {
   width: 100%;
   aspect-ratio: 0.9;
   margin: 0;
+  overflow: hidden;
+  position: relative;
   transform: translateX(-36px);
 }
 
@@ -395,6 +406,56 @@ h1 {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.about-section__source {
+  transition: opacity 120ms ease;
+}
+
+.about-section__media.is-sliced .about-section__source {
+  opacity: 0;
+}
+
+.about-section__slice {
+  --slice-back: 0%;
+  --slice-front: 0%;
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+  clip-path: polygon(
+    0 var(--slice-top),
+    var(--slice-front) var(--slice-top),
+    var(--slice-back) var(--slice-bottom),
+    0 var(--slice-bottom)
+  );
+  will-change: clip-path;
+}
+
+.about-section__slice--one {
+  --slice-top: 0%;
+  --slice-bottom: 20%;
+}
+
+.about-section__slice--two {
+  --slice-top: 20%;
+  --slice-bottom: 50%;
+}
+
+.about-section__slice--three {
+  --slice-top: 50%;
+  --slice-bottom: 70%;
+}
+
+.about-section__slice--four {
+  --slice-top: 70%;
+  --slice-bottom: 88%;
+}
+
+.about-section__slice--five {
+  --slice-top: 88%;
+  --slice-bottom: 100%;
 }
 
 .about-section__content {
@@ -413,6 +474,15 @@ h1 {
   line-height: 0.98;
   font-weight: 760;
   letter-spacing: 0;
+}
+
+.about-section h2 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.about-section__title-indent {
+  padding-left: 22px;
 }
 
 .about-section__copy {
@@ -578,8 +648,9 @@ body.is-lightbox-open {
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 720ms ease, transform 720ms ease;
+  transform: translateY(20px);
+  transition: opacity 780ms cubic-bezier(0.22, 1, 0.36, 1) 90ms,
+    transform 780ms cubic-bezier(0.22, 1, 0.36, 1) 90ms;
 }
 
 .scroll-reveal.is-visible {
@@ -590,7 +661,8 @@ body.is-lightbox-open {
 [data-reveal] {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 540ms ease, transform 540ms ease;
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1) 140ms,
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1) 140ms;
 }
 
 .ranch-life.is-visible [data-reveal] {
@@ -601,7 +673,19 @@ body.is-lightbox-open {
 @keyframes panel-reveal {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panel-content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
 
   to {
@@ -625,6 +709,19 @@ body.is-lightbox-open {
 
   .ranch-service__panel {
     animation: none;
+  }
+
+  .ranch-service[open] .ranch-service__panel p,
+  .ranch-service[open] .ranch-service__media {
+    animation: none;
+  }
+
+  .about-section__slice {
+    display: none;
+  }
+
+  .about-section__media.is-sliced .about-section__source {
+    opacity: 1;
   }
 
   .ranch-service__title,
@@ -652,6 +749,10 @@ body.is-lightbox-open {
 
   .about-section h2 {
     font-size: 38px;
+  }
+
+  .about-section__title-indent {
+    padding-left: 18px;
   }
 
   .contact-section__header {
@@ -740,6 +841,10 @@ body.is-lightbox-open {
 
   .about-section h2 {
     font-size: 34px;
+  }
+
+  .about-section__title-indent {
+    padding-left: 14px;
   }
 
   .contact-section {
@@ -888,6 +993,10 @@ body.is-lightbox-open {
     line-height: 1;
   }
 
+  .about-section__title-indent {
+    padding-left: 10px;
+  }
+
   .about-section__copy {
     max-width: none;
     padding-left: 12px;
@@ -1034,6 +1143,10 @@ body.is-lightbox-open {
 
   .about-section h2 {
     font-size: 24px;
+  }
+
+  .about-section__title-indent {
+    padding-left: 8px;
   }
 
   .about-section__copy {

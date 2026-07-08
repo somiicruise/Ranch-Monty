@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ranch Monty</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -150,12 +151,30 @@
 
       <section class="about-section scroll-reveal" aria-labelledby="about-title" data-reveal-section>
         <div class="about-section__inner">
-          <figure class="about-section__media">
-            <img src="assets/about-cropped.png" alt="Jazdkyňa na koni" />
+          <figure class="about-section__media" data-scroll-slice-image>
+            <img class="about-section__source" src="assets/about-cropped.png" alt="Jazdkyňa na koni" />
+            <span class="about-section__slice about-section__slice--one" aria-hidden="true">
+              <img src="assets/about-cropped.png" alt="" />
+            </span>
+            <span class="about-section__slice about-section__slice--two" aria-hidden="true">
+              <img src="assets/about-cropped.png" alt="" />
+            </span>
+            <span class="about-section__slice about-section__slice--three" aria-hidden="true">
+              <img src="assets/about-cropped.png" alt="" />
+            </span>
+            <span class="about-section__slice about-section__slice--four" aria-hidden="true">
+              <img src="assets/about-cropped.png" alt="" />
+            </span>
+            <span class="about-section__slice about-section__slice--five" aria-hidden="true">
+              <img src="assets/about-cropped.png" alt="" />
+            </span>
           </figure>
 
           <div class="about-section__content">
-            <h2 id="about-title">Z lásky ku koňom</h2>
+            <h2 id="about-title">
+              <span>Z lásky ku</span>
+              <span class="about-section__title-indent">koňom</span>
+            </h2>
             <p class="about-section__copy">
               Kone a príroda sú neoddeliteľnou súčasťou môjho života. Tento ranč vznikol z lásky ku koňom a túžby vytvoriť miesto, kde sa každý môže cítiť príjemne, oddýchnuť si a zažiť krásne chvíle v sedle.
             </p>
