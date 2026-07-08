@@ -288,15 +288,48 @@ h1 {
 }
 
 .ranch-service__media {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(150px, 230px));
-  justify-content: end;
+  display: flex;
+  width: min(100%, 640px);
+  max-width: 640px;
+  margin-left: auto;
+  justify-self: end;
   gap: 14px;
+  padding-bottom: 12px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding: 2px;
+  scroll-snap-type: x proximity;
+  scrollbar-color: var(--black) var(--line);
+  scrollbar-width: thin;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ranch-service__media::-webkit-scrollbar {
+  display: block;
+  height: 6px;
+}
+
+.ranch-service__media::-webkit-scrollbar-track {
+  background: var(--line);
+}
+
+.ranch-service__media::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 999px;
+}
+
+.ranch-service__media.is-dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+  user-select: none;
 }
 
 .ranch-service__image {
   position: relative;
   display: block;
+  flex: 0 0 min(270px, 42%);
+  scroll-snap-align: start;
   height: 150px;
   padding: 0;
   overflow: hidden;
@@ -304,6 +337,14 @@ h1 {
   background: var(--soft);
   color: inherit;
   cursor: zoom-in;
+}
+
+.ranch-service__media--pair .ranch-service__image {
+  flex-basis: min(270px, 42%);
+}
+
+.ranch-service__media--pair {
+  justify-content: flex-end;
 }
 
 .ranch-service__image img {
@@ -493,13 +534,14 @@ h1 {
 }
 
 .image-lightbox {
+  --lightbox-gutter: 36px;
   position: fixed;
   inset: 0;
   z-index: 20;
   display: grid;
   place-items: center;
-  padding: 42px;
-  background: rgba(8, 8, 8, 0.86);
+  padding: 18px;
+  background: rgba(8, 8, 8, 0.94);
 }
 
 .image-lightbox[hidden] {
@@ -508,11 +550,12 @@ h1 {
 
 .image-lightbox__image {
   display: block;
-  max-width: min(980px, 88vw);
-  max-height: 82vh;
+  width: calc(100vw - var(--lightbox-gutter));
+  height: calc(100vh - var(--lightbox-gutter));
+  max-width: none;
+  max-height: none;
   object-fit: contain;
-  background: var(--black);
-  box-shadow: 0 34px 86px rgba(0, 0, 0, 0.46);
+  background: transparent;
 }
 
 .image-lightbox__close {
@@ -769,8 +812,17 @@ body.is-lightbox-open {
   }
 
   .ranch-service__media {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-content: end;
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .ranch-service__image {
+    flex-basis: 44%;
+  }
+
+  .ranch-service__media--pair .ranch-service__image {
+    flex-basis: 44%;
   }
 }
 
@@ -916,14 +968,21 @@ body.is-lightbox-open {
 
   .ranch-service__media {
     gap: 10px;
+    padding-bottom: 10px;
   }
 
   .ranch-service__image {
-    height: 104px;
+    flex-basis: 84%;
+    height: 118px;
+  }
+
+  .ranch-service__media--pair .ranch-service__image {
+    flex-basis: 84%;
   }
 
   .image-lightbox {
-    padding: 22px;
+    --lightbox-gutter: 24px;
+    padding: 12px;
   }
 
   .image-lightbox__close {
