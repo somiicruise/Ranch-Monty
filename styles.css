@@ -289,21 +289,34 @@ h1 {
 
 .ranch-service__media {
   display: flex;
-  width: 100%;
-  max-width: 100%;
+  width: min(100%, 640px);
+  max-width: 640px;
+  margin-left: auto;
   justify-self: end;
   gap: 14px;
+  padding-bottom: 12px;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-padding: 2px;
   scroll-snap-type: x proximity;
-  scrollbar-width: none;
+  scrollbar-color: var(--black) var(--line);
+  scrollbar-width: thin;
   cursor: grab;
   -webkit-overflow-scrolling: touch;
 }
 
 .ranch-service__media::-webkit-scrollbar {
-  display: none;
+  display: block;
+  height: 6px;
+}
+
+.ranch-service__media::-webkit-scrollbar-track {
+  background: var(--line);
+}
+
+.ranch-service__media::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 999px;
 }
 
 .ranch-service__media.is-dragging {
@@ -315,7 +328,7 @@ h1 {
 .ranch-service__image {
   position: relative;
   display: block;
-  flex: 0 0 min(230px, calc((100% - 28px) / 3));
+  flex: 0 0 min(270px, 42%);
   scroll-snap-align: start;
   height: 150px;
   padding: 0;
@@ -327,7 +340,11 @@ h1 {
 }
 
 .ranch-service__media--pair .ranch-service__image {
-  flex-basis: min(230px, calc((100% - 14px) / 2));
+  flex-basis: min(270px, 42%);
+}
+
+.ranch-service__media--pair {
+  justify-content: flex-end;
 }
 
 .ranch-service__image img {
@@ -793,15 +810,17 @@ body.is-lightbox-open {
   }
 
   .ranch-service__media {
+    width: 100%;
+    max-width: 100%;
     gap: 12px;
   }
 
   .ranch-service__image {
-    flex-basis: min(180px, calc((100% - 12px) / 2));
+    flex-basis: 44%;
   }
 
   .ranch-service__media--pair .ranch-service__image {
-    flex-basis: min(180px, calc((100% - 12px) / 2));
+    flex-basis: 44%;
   }
 }
 
@@ -947,15 +966,16 @@ body.is-lightbox-open {
 
   .ranch-service__media {
     gap: 10px;
+    padding-bottom: 10px;
   }
 
   .ranch-service__image {
-    flex-basis: min(150px, calc((100% - 10px) / 2));
+    flex-basis: 45%;
     height: 104px;
   }
 
   .ranch-service__media--pair .ranch-service__image {
-    flex-basis: min(150px, calc((100% - 10px) / 2));
+    flex-basis: 45%;
   }
 
   .image-lightbox {
