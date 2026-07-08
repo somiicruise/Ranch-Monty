@@ -25,6 +25,81 @@ if (revealSections.length > 0) {
   }
 }
 
+const dragSliders = Array.from(document.querySelectorAll("[data-drag-slider]"));
+
+dragSliders.forEach((slider) => {
+  let isDragging = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let hasMoved = false;
+
+  function stopDragging(pointerId) {
+    if (!isDragging) {
+      return;
+    }
+
+    isDragging = false;
+    slider.classList.remove("is-dragging");
+
+    if (hasMoved) {
+      slider.dataset.dragged = "true";
+      window.setTimeout(() => {
+        slider.dataset.dragged = "false";
+      }, 0);
+    }
+
+    if (pointerId != null && slider.hasPointerCapture(pointerId)) {
+      slider.releasePointerCapture(pointerId);
+    }
+  }
+
+  slider.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    isDragging = true;
+    hasMoved = false;
+    startX = event.clientX;
+    startScrollLeft = slider.scrollLeft;
+    slider.classList.add("is-dragging");
+    slider.setPointerCapture(event.pointerId);
+  });
+
+  slider.addEventListener("pointermove", (event) => {
+    if (!isDragging) {
+      return;
+    }
+
+    const deltaX = event.clientX - startX;
+
+    if (Math.abs(deltaX) > 4) {
+      hasMoved = true;
+    }
+
+    slider.scrollLeft = startScrollLeft - deltaX;
+  });
+
+  slider.addEventListener("pointerup", (event) => {
+    stopDragging(event.pointerId);
+  });
+
+  slider.addEventListener("pointercancel", (event) => {
+    stopDragging(event.pointerId);
+  });
+
+  slider.addEventListener(
+    "click",
+    (event) => {
+      if (slider.dataset.dragged === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    },
+    true
+  );
+});
+
 const lightbox = document.querySelector("[data-lightbox]");
 const lightboxImage = document.querySelector("[data-lightbox-image]");
 const lightboxClose = document.querySelector("[data-lightbox-close]");
