@@ -229,7 +229,7 @@ h1 {
   min-width: 0;
   color: currentColor;
   font-size: 74px;
-  line-height: 0.9;
+  line-height: 1.03;
   font-weight: 450;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -1058,7 +1058,7 @@ body.is-lightbox-open {
 
   .ranch-service__title {
     font-size: 30px;
-    line-height: 1;
+    line-height: 1.08;
   }
 
   .ranch-service__pointer {
