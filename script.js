@@ -91,8 +91,24 @@ const aboutMobileQuery = window.matchMedia("(max-width: 620px)");
 
 aboutGalleries.forEach((gallery) => {
   const images = Array.from(gallery.querySelectorAll("[data-about-image]"));
+  const dragThumb = gallery.parentElement?.querySelector("[data-about-drag-thumb]");
   let scrollFrame = null;
   let resizeFrame = null;
+
+  function updateDragIndicator() {
+    if (!dragThumb) {
+      return;
+    }
+
+    const maxScroll = Math.max(0, gallery.scrollWidth - gallery.clientWidth);
+    const visibleRatio =
+      gallery.scrollWidth > 0 ? Math.min(1, gallery.clientWidth / gallery.scrollWidth) : 1;
+    const thumbWidth = Math.max(0.25, visibleRatio);
+    const progress = maxScroll > 0 ? Math.min(1, Math.max(0, gallery.scrollLeft / maxScroll)) : 0;
+
+    dragThumb.style.width = `${thumbWidth * 100}%`;
+    dragThumb.style.left = `${progress * (1 - thumbWidth) * 100}%`;
+  }
 
   function activateImage(activeImage) {
     images.forEach((image) => {
@@ -119,6 +135,7 @@ aboutGalleries.forEach((gallery) => {
 
     if (!aboutMobileQuery.matches) {
       gallery.scrollLeft = 0;
+      updateDragIndicator();
       return;
     }
 
@@ -133,6 +150,7 @@ aboutGalleries.forEach((gallery) => {
       left: Math.max(0, targetLeft),
       behavior: "auto",
     });
+    updateDragIndicator();
   }
 
   function syncActiveImageToScroll() {
@@ -142,6 +160,7 @@ aboutGalleries.forEach((gallery) => {
 
     scrollFrame = window.requestAnimationFrame(() => {
       scrollFrame = null;
+      updateDragIndicator();
       const galleryBounds = gallery.getBoundingClientRect();
       const galleryCenter = galleryBounds.left + galleryBounds.width / 2;
       const closestImage = images.reduce((closest, image) => {
@@ -173,7 +192,10 @@ aboutGalleries.forEach((gallery) => {
     });
   }
 
-  window.requestAnimationFrame(alignActiveImage);
+  window.requestAnimationFrame(() => {
+    alignActiveImage();
+    updateDragIndicator();
+  });
   gallery.addEventListener("scroll", syncActiveImageToScroll, { passive: true });
   window.addEventListener("resize", requestMobileAlignment);
 

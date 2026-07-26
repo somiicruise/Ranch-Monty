@@ -340,7 +340,8 @@ h1 {
   display: block;
   flex: 0 0 min(270px, 42%);
   scroll-snap-align: start;
-  height: 150px;
+  aspect-ratio: 1;
+  height: auto;
   padding: 0;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -419,11 +420,19 @@ h1 {
   text-wrap: balance;
 }
 
+.about-section__gallery-shell {
+  min-width: 0;
+}
+
 .about-section__gallery {
   display: flex;
   align-items: flex-end;
   gap: 4px;
   min-height: 438px;
+}
+
+.about-section__drag-indicator {
+  display: none;
 }
 
 .about-section__image {
@@ -1107,11 +1116,11 @@ body.is-lightbox-open {
   }
 
   .ranch-service__image {
-    flex-basis: 44%;
+    flex-basis: 31.5%;
   }
 
   .ranch-service__media--pair .ranch-service__image {
-    flex-basis: 44%;
+    flex-basis: 31.5%;
   }
 }
 
@@ -1191,30 +1200,39 @@ body.is-lightbox-open {
     width: calc(100% + var(--page-gutter));
     min-height: 234px;
     margin-right: calc(var(--page-gutter) * -1);
-    padding: 0 var(--page-gutter) 14px 0;
+    padding: 0 var(--page-gutter) 0 0;
     align-items: flex-end;
     gap: 10px;
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scroll-padding-inline: 0 var(--page-gutter);
     scroll-snap-type: x mandatory;
-    scrollbar-color: var(--black) var(--line);
-    scrollbar-width: thin;
+    scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
 
   .about-section__gallery::-webkit-scrollbar {
-    display: block;
-    height: 4px;
+    display: none;
   }
 
-  .about-section__gallery::-webkit-scrollbar-track {
+  .about-section__drag-indicator {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 999px;
     background: var(--line);
   }
 
-  .about-section__gallery::-webkit-scrollbar-thumb {
+  .about-section__drag-thumb {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 25%;
     border-radius: 999px;
     background: var(--black);
+    transition: left 100ms linear;
   }
 
   .about-section__image {
@@ -1332,12 +1350,11 @@ body.is-lightbox-open {
   }
 
   .ranch-service__image {
-    flex-basis: 84%;
-    height: 118px;
+    flex-basis: 46%;
   }
 
   .ranch-service__media--pair .ranch-service__image {
-    flex-basis: 84%;
+    flex-basis: 46%;
   }
 
   .image-lightbox {
@@ -1407,7 +1424,6 @@ body.is-lightbox-open {
 
   .about-section__gallery {
     min-height: 204px;
-    padding-bottom: 12px;
   }
 
   .about-section__image {
@@ -1418,6 +1434,11 @@ body.is-lightbox-open {
   .about-section__image.is-active {
     flex-basis: min(62vw, 210px);
     height: 190px;
+  }
+
+  .ranch-service__image,
+  .ranch-service__media--pair .ranch-service__image {
+    flex-basis: 42%;
   }
 
   .love-section h2 {
