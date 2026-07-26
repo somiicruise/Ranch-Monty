@@ -340,7 +340,8 @@ h1 {
   display: block;
   flex: 0 0 min(270px, 42%);
   scroll-snap-align: start;
-  height: 150px;
+  aspect-ratio: 1;
+  height: auto;
   padding: 0;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1115,11 +1116,11 @@ body.is-lightbox-open {
   }
 
   .ranch-service__image {
-    flex-basis: 44%;
+    flex-basis: 31.5%;
   }
 
   .ranch-service__media--pair .ranch-service__image {
-    flex-basis: 44%;
+    flex-basis: 31.5%;
   }
 }
 
@@ -1349,12 +1350,11 @@ body.is-lightbox-open {
   }
 
   .ranch-service__image {
-    flex-basis: 84%;
-    height: 118px;
+    flex-basis: 46%;
   }
 
   .ranch-service__media--pair .ranch-service__image {
-    flex-basis: 84%;
+    flex-basis: 46%;
   }
 
   .image-lightbox {
@@ -1434,6 +1434,11 @@ body.is-lightbox-open {
   .about-section__image.is-active {
     flex-basis: min(62vw, 210px);
     height: 190px;
+  }
+
+  .ranch-service__image,
+  .ranch-service__media--pair .ranch-service__image {
+    flex-basis: 42%;
   }
 
   .love-section h2 {
