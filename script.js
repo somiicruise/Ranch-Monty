@@ -58,7 +58,7 @@ if (scrollSliceImages.length > 0 && !prefersReducedMotion) {
       const revealStart = viewportHeight * 0.9;
       const revealDistance = viewportHeight * 0.58 + rect.height * 0.35;
       const overallProgress = clamp((revealStart - rect.top) / revealDistance, 0, 1);
-      const slices = Array.from(image.querySelectorAll(".about-section__slice"));
+      const slices = Array.from(image.querySelectorAll("[data-scroll-slice]"));
 
       image.classList.add("is-sliced");
 
@@ -85,6 +85,108 @@ if (scrollSliceImages.length > 0 && !prefersReducedMotion) {
   window.addEventListener("scroll", requestSliceUpdate, { passive: true });
   window.addEventListener("resize", requestSliceUpdate);
 }
+
+const aboutGalleries = Array.from(document.querySelectorAll("[data-about-gallery]"));
+const aboutMobileQuery = window.matchMedia("(max-width: 620px)");
+
+aboutGalleries.forEach((gallery) => {
+  const images = Array.from(gallery.querySelectorAll("[data-about-image]"));
+  let scrollFrame = null;
+  let resizeFrame = null;
+
+  function activateImage(activeImage) {
+    images.forEach((image) => {
+      const isActive = image === activeImage;
+      image.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        image.setAttribute("aria-current", "true");
+      } else {
+        image.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  const initialImage =
+    images.find((image) => image.classList.contains("is-active")) || images[images.length - 1];
+
+  if (initialImage) {
+    activateImage(initialImage);
+  }
+
+  function alignActiveImage() {
+    const activeImage = images.find((image) => image.classList.contains("is-active")) || initialImage;
+
+    if (!aboutMobileQuery.matches) {
+      gallery.scrollLeft = 0;
+      return;
+    }
+
+    if (!activeImage) {
+      return;
+    }
+
+    const targetLeft =
+      activeImage.offsetLeft - (gallery.clientWidth - activeImage.offsetWidth) / 2;
+
+    gallery.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: "auto",
+    });
+  }
+
+  function syncActiveImageToScroll() {
+    if (!aboutMobileQuery.matches || scrollFrame != null) {
+      return;
+    }
+
+    scrollFrame = window.requestAnimationFrame(() => {
+      scrollFrame = null;
+      const galleryBounds = gallery.getBoundingClientRect();
+      const galleryCenter = galleryBounds.left + galleryBounds.width / 2;
+      const closestImage = images.reduce((closest, image) => {
+        const imageBounds = image.getBoundingClientRect();
+        const imageCenter = imageBounds.left + imageBounds.width / 2;
+        const distance = Math.abs(galleryCenter - imageCenter);
+
+        if (!closest || distance < closest.distance) {
+          return { image, distance };
+        }
+
+        return closest;
+      }, null);
+
+      if (closestImage) {
+        activateImage(closestImage.image);
+      }
+    });
+  }
+
+  function requestMobileAlignment() {
+    if (resizeFrame != null) {
+      return;
+    }
+
+    resizeFrame = window.requestAnimationFrame(() => {
+      resizeFrame = null;
+      alignActiveImage();
+    });
+  }
+
+  window.requestAnimationFrame(alignActiveImage);
+  gallery.addEventListener("scroll", syncActiveImageToScroll, { passive: true });
+  window.addEventListener("resize", requestMobileAlignment);
+
+  images.forEach((image) => {
+    image.addEventListener("pointerenter", () => {
+      activateImage(image);
+    });
+
+    image.addEventListener("focus", () => {
+      activateImage(image);
+    });
+  });
+});
 
 const dragSliders = Array.from(document.querySelectorAll("[data-drag-slider]"));
 const dragThreshold = 10;
