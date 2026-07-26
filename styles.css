@@ -1088,18 +1088,21 @@ body.is-lightbox-open {
   }
 
   .ranch-service__panel {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
-    gap: 22px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
     align-items: start;
   }
 
   .ranch-service__panel p {
-    max-width: 320px;
+    width: 100%;
+    max-width: none;
   }
 
   .ranch-service__media {
     width: 100%;
     max-width: 100%;
+    margin-left: 0;
+    justify-self: stretch;
     gap: 12px;
   }
 
